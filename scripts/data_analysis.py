@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the dataset
-df = pd.read_csv("KNBS_Villas_2010.csv")
+df = pd.read_csv("../KNBS_Villas_2010.csv")
 
 # Quick overview
 print(df.info())
@@ -23,7 +23,7 @@ df = df.dropna(subset=['month', 'total_revenue'])
 df_cleaned = df.dropna(subset=['month', 'total_revenue'])
 
 # Save cleaned data to CSV
-df_cleaned.to_csv("C:\\Users\\Admin$\\Documents\\KNBS_Project\clear\KNBS_Villas_cleaned.csv", index=False)
+df_cleaned.to_csv("C:\\Users\\Admin$\\Revenue_prediction\\KNBS_Villas_cleaned.csv", index=False)
 
 print("Cleaned CSV file saved successfully!")
 

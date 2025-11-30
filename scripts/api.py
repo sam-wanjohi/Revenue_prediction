@@ -9,10 +9,9 @@ import os
 from joblib import load
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "outputs", "best_model.joblib")
+MODEL_PATH = os.path.join(BASE_DIR, "..", "outputs", "best_model.joblib")
 
 model = load(MODEL_PATH)
-
 
 # ------------------------------------
 # Load Model & Scaler

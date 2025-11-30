@@ -4,9 +4,16 @@ from joblib import load
 import numpy as np
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
-
 import os
 from joblib import load
+from fastapi import FastAPI
+
+app = FastAPI()
+
+# Root route for health checks
+@app.get("/")
+def root():
+    return {"message": "API is running!"}
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "..", "outputs", "best_model.joblib")

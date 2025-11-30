@@ -37,7 +37,7 @@ class _PredictionScreenState extends State<PredictionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("KNBS Revenue Prediction")),
+      appBar: AppBar(title: const Text("Revenue Prediction")),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(

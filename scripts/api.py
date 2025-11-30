@@ -5,11 +5,20 @@ import numpy as np
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
 
+import os
+from joblib import load
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "outputs", "best_model.joblib")
+
+model = load(MODEL_PATH)
+
+
 # ------------------------------------
 # Load Model & Scaler
 # ------------------------------------
-MODEL_PATH = r"C:\Users\Admin$\Documents\KNBS_Project\outputs\best_model.joblib"
-SCALER_PATH = r"C:\Users\Admin$\Documents\KNBS_Project\outputs\scaler.joblib"
+#MODEL_PATH = r"C:\Users\Admin$\Revenue_prediction\outputs\best_model.joblib"
+#SCALER_PATH = r"C:\Users\Admin$\Revenue_prediction\outputs\scaler.joblib"
 
 model = load(MODEL_PATH)
 scaler = load(SCALER_PATH)

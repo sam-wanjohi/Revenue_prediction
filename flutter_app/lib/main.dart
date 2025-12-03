@@ -30,7 +30,6 @@ class _PredictionScreenState extends State<PredictionScreen> {
 
   final TextEditingController monthController = TextEditingController();
   final TextEditingController bedsController = TextEditingController();
-  final TextEditingController unitsController = TextEditingController();
 
   double? prediction;
 
@@ -45,25 +44,20 @@ class _PredictionScreenState extends State<PredictionScreen> {
             TextField(
               controller: monthController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: "Month"),
+              decoration: const InputDecoration(labelText: "Month (1-12)"),
             ),
             TextField(
               controller: bedsController,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(labelText: "Beds Occupied"),
             ),
-            TextField(
-              controller: unitsController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: "Units Occupied"),
-            ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
                 final input = {
-                  "Month": double.parse(monthController.text),
+                  "month": int.parse(monthController.text),
                   "beds_occupied": double.parse(bedsController.text),
-                  "units_occupied": double.parse(unitsController.text),
+                  "beds_capacity": 20, // optional, matches API default
                 };
 
                 double? result = await api.predictRevenue(input);
